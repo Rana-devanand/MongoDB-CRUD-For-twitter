@@ -24,6 +24,15 @@ class TweetService {
           }
      }
 
+     async UpdateTweets (id , data) {
+          try {
+               const updateTweet = await this.TweetRepository.updateTweet(id , data);
+               return updateTweet;
+          } catch (error) {
+               console.error("Error updating Tweets", error);
+          }
+     }
+
      async getAllTweets () {
           try {
                const tweets = await this.TweetRepository.getAllTweets();

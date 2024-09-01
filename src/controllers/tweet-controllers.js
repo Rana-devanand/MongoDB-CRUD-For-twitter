@@ -65,8 +65,29 @@ const getAllTweets = async (req,res) => {
      }
 }
 
+const updateTweet = async (req, res) => {
+     try {
+          const response = await tweetService.UpdateTweets(req.params.id , req.body);
+          return res.status(200).json({
+               tweet: response,
+               message: "Tweet updated successfully",
+               success : true,
+               err : {},
+          })
+     } catch (error) {
+          console.error(error);
+          return res.status(400).json({
+               tweet: {},
+               message: "Failed to update tweet",
+               success : false,
+               err : error,
+          })
+     }
+}
+
 module.exports = {
      create,
      deleteTweet,
-     getAllTweets
+     getAllTweets,
+     updateTweet
 }

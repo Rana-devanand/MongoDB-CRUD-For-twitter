@@ -15,7 +15,7 @@ class TweetRepository {
           try {
                const updateTweet = await Tweet.findByIdAndUpdate(id , data , {new : true})
                return updateTweet;
-          } catch (error) {
+          } catch (error) {   
                throw new Error(error);
           }
      }
